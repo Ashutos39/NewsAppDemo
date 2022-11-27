@@ -361,8 +361,8 @@
 		FD6F35FF293241C800949291 /* DetailScreen */ = {
 			isa = PBXGroup;
 			children = (
-				FD6F3600293241C800949291 /* ViewModel */,
 				FD6F3602293241C800949291 /* View */,
+				FD6F3600293241C800949291 /* ViewModel */,
 			);
 			path = DetailScreen;
 			sourceTree = "<group>";
@@ -386,9 +386,9 @@
 		FD6F3607293241C800949291 /* HomeScreen */ = {
 			isa = PBXGroup;
 			children = (
-				FD6F3608293241C800949291 /* ViewModel */,
 				FD6F360A293241C800949291 /* Model */,
 				FD6F360C293241C800949291 /* View */,
+				FD6F3608293241C800949291 /* ViewModel */,
 				FD6F3611293241C800949291 /* Worker */,
 			);
 			path = HomeScreen;
