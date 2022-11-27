@@ -54,7 +54,13 @@ private extension HomeViewModel {
             switch result {
             case .success(let response):
                 if let articles = response.articles, !articles.isEmpty {
-                    self?.saveDataFromCoreData(articles: articles)
+                    self?.homeCoreDataWorker.deleteAll() { [weak self] isSucess in
+                        if isSucess {
+                            self?.saveDataFromCoreData(articles: articles)
+                        } else {
+                            self?.delegate?.showError(errorMessage: "Article response is empty")
+                        }
+                    }
                 } else {
                     self?.delegate?.showError(errorMessage: "Article response is empty")
                 }

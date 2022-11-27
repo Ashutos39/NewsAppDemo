@@ -36,8 +36,11 @@ extension HomeScreenViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        guard let url = homeViewModel.articles[indexPath.row].url else { return }
+        if !DemoNetworkReachabilityManager.isConnectedToNetwork  {
+            showError(errorMessage: "Internet not avilable")
+            return
+        }
+        guard let url = homeViewModel.articles[indexPath.row].url else {return }
         let detailView = self.storyboard?.instantiateViewController(withIdentifier: "DetailsViewController") as! DetailsViewController
         detailView.initialiseData(articleUrl: url)
         self.navigationController?.pushViewController(detailView, animated: true)

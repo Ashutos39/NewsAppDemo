@@ -56,4 +56,15 @@ struct HomeScreenCoreDataWorker: HelperProtocol {
             }
         }
     }
+    
+    func deleteAll( completionHandler: @escaping (Bool) -> Void) {
+        coreDataWorker.deleteAllAsync(forType: NewsArticle.self) { (result: NewsApiDemoVoidResult<Error>) in
+            switch result {
+            case .success:
+                completionHandler(true)
+            case .failure(_):
+                completionHandler(false)
+            }
+        }
+    }
 }
